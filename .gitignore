@@ -5,3 +5,4 @@ __pycache__/
 .streamlit/
 test_output/
 GEMINI.md
+halla_source/
