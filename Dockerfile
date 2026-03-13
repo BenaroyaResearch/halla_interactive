@@ -1,12 +1,13 @@
-# Use Miniconda base image to easily manage R and Python dependencies
+# Use Miniconda base image
 FROM continuumio/miniconda3:latest
 
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install standard Linux build compilers (gcc) required for Python C-extensions (like jenkspy)
+RUN apt-get update && apt-get install -y build-essential
+
 # Install R, the specific R packages, Python 3.9, and rpy2 via conda-forge.
-# Installing rpy2 via conda-forge on Linux ensures perfect linkage between 
-# Conda's R and Python environments without manual C-flag compilation.
 RUN conda install -c conda-forge -y \
     python=3.9 \
     r-base=4.3 \
