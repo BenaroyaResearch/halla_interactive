@@ -4,3 +4,4 @@ __pycache__/
 .env
 .streamlit/
 test_output/
+GEMINI.md
