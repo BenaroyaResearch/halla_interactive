@@ -16,15 +16,17 @@ RUN conda install -c conda-forge -y \
     rpy2
 
 # Install HAllA, Streamlit, and pin Pillow to prevent the Matplotlib/PDF crash
+# Added kaleido for static image export (PNG/PDF)
 RUN pip install --no-cache-dir \
     halla \
     "Pillow<10.0.0" \
     streamlit \
     plotly \
-    pandas
+    pandas \
+    kaleido
 
 # Expose the port Streamlit uses to communicate with your browser
 EXPOSE 8501
 
-# Command to run the Streamlit app (placeholder for now)
-CMD ["streamlit", "hello"]
+# Command to run the Streamlit app
+CMD ["streamlit", "run", "app.py"]
